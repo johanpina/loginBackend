@@ -7,7 +7,7 @@ For more information on this file, see
 https://docs.djangoproject.com/en/4.0/topics/settings/
 
 For the full list of settings and their values, see
-https://docs.djangoproject.com/en/4.0/ref/settings/
+https://docs.djangoproject.com/en/4.0/ref/settings/ 
 """
 
 from datetime import timedelta
@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-+f*(ighua*9wd77=#__ocuky)^-su3o6lqo$^a2!q#0!xjf3ib
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+#CORS_ALLOWED_ORIGINS = ['https://enlace_al_frontend.herokuapp.com']
+CORS_ALLOW_ALL_ORIGINS = True
 ALLOWED_HOSTS = []
 
 
@@ -40,11 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'authApp',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
