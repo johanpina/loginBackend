@@ -10,12 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/ 
 """
 
+import os
+from dotenv import load_dotenv
 from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+load_dotenv(".envsv")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -106,11 +110,11 @@ WSGI_APPLICATION = 'authProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd5nrrlbi6cmo5m',
-        'USER': 'iwtswnfkihdbeb',
-        'PASSWORD': 'e26b3d65802ae64a3c4b2d806e94d30cf10905fbc4eb3a2d422425e509dd15e2',
-        'HOST': 'ec2-44-209-186-51.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'NAME': os.getenv('DBNAME'),
+        'USER': os.getenv('DBUSER'),
+        'PASSWORD': os.getenv('DBPASSWORD'),
+        'HOST': os.getenv('DBHOST','127.0.0.1'),
+        'PORT': os.getenv('DBPORT','5432'),
     }
 }
 
@@ -156,5 +160,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-import django_heroku
-django_heroku.settings(locals())
+#import django_heroku
+#django_heroku.settings(locals())
