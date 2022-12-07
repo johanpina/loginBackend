@@ -28,9 +28,9 @@ load_dotenv(".envsv")
 SECRET_KEY = 'django-insecure-+f*(ighua*9wd77=#__ocuky)^-su3o6lqo$^a2!q#0!xjf3ib'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False#True
 #CORS_ALLOWED_ORIGINS = ['https://enlace_al_frontend.herokuapp.com']
-CORS_ALLOW_ALL_ORIGINS = False #True
+CORS_ALLOW_ALL_ORIGINS = True
 ALLOWED_HOSTS = [os.getenv('DBHOST')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
